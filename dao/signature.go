@@ -44,7 +44,6 @@ func ToMap(h *model.CommonHeader) map[string]string {
 		model.AuthorizationHeader:       h.Authorization,
 		model.ContentTypeHeader:         h.ContentType,
 		model.AcceptHeader:              h.ContentAcceptType,
-		model.BilispyColor:              h.X1BilispyColor,
 		model.AccessToken:               h.AccessToken,
 	}
 }

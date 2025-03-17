@@ -3,12 +3,12 @@ package service
 import (
 	"encoding/json"
 	"fmt"
-	"shenyue-gin/app/bilibili/openPlat/dao"
-	"shenyue-gin/app/bilibili/openPlat/model"
+	"openplat/dao"
+	"openplat/model"
 )
 
 // CommonAddShare 新增共享
-func CommonAddShare() (resp model.BaseResp, err error) {
+func CommonAddShare(bizCode string) (resp model.BaseResp, err error) {
 	// 创建一个 CommonMsg 对象
 	commonMsg := model.CommonMsg{
 		Source:  "",
@@ -30,7 +30,7 @@ func CommonAddShare() (resp model.BaseResp, err error) {
 	fmt.Println(jsonString)
 	commonAddShareReq := model.CommonAddShareReq{
 		CommonMsg: string(jsonString),
-		BizCode:   model.BizCode,
+		BizCode:   bizCode,
 		SceneCode: model.SceneCode,
 	}
 	commonAddShareReqJson, _ := json.Marshal(commonAddShareReq)

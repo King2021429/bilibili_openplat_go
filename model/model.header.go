@@ -5,7 +5,6 @@ const (
 	ContentTypeHeader         = "Content-Type"
 	AuthorizationHeader       = "Authorization"
 	JsonType                  = "application/json"
-	BiliVersion               = "1.0"
 	HmacSha256                = "HMAC-SHA256"
 	BiliTimestampHeader       = "x-bili-timestamp"
 	BiliSignatureMethodHeader = "x-bili-signature-method"
@@ -13,9 +12,13 @@ const (
 	BiliAccessKeyIdHeader     = "x-bili-accesskeyid"
 	BiliSignVersionHeader     = "x-bili-signature-version"
 	BiliContentMD5Header      = "x-bili-content-md5"
-	BilispyColor              = "x1-bilispy-color"
 	AccessToken               = "access-token"
-	BiliVersionV2             = "2.0"
+
+	BiliVersion   = "1.0"
+	BiliVersionV2 = "2.0"
+
+	MethodGet  = "GET"
+	MethodPost = "POST"
 )
 
 type CommonHeader struct {
@@ -28,6 +31,5 @@ type CommonHeader struct {
 	Nonce             string
 	AccessKeyId       string
 	ContentMD5        string
-	X1BilispyColor    string
 	AccessToken       string
 }

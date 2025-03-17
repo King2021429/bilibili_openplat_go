@@ -2,8 +2,7 @@ package service
 
 import (
 	"encoding/json"
-	"shenyue-gin/app/bilibili/openPlat/dao"
-	"shenyue-gin/app/bilibili/openPlat/model"
+	"openplat/model"
 )
 
 // ArticleAdd 请求测试
@@ -16,5 +15,5 @@ func ArticleAdd() (resp model.BaseResp, err error) {
 		Content:    "神月的开放平台正文测试",
 	}
 	articleAddReqJson, _ := json.Marshal(articleAddReq)
-	return dao.ApiRequest(string(articleAddReqJson), "/arcopen/fn/article/add")
+	return
 }

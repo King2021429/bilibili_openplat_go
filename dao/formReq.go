@@ -14,13 +14,14 @@ import (
 	"time"
 )
 
-// DaoFormRequest http request demo方法
-func DaoFormRequest(requestUrl string) (resp model.BaseResp, err error) {
+// PicRequest 图片上传请求方法
+func PicRequest(requestUrl, picUrl, clientId, accessToken, appSecret, version string) (resp model.BaseResp, err error) {
 	payload := &bytes.Buffer{}
 	writer := multipart.NewWriter(payload)
-	file, errFile1 := os.Open("/Users/shenyue/Downloads/图标2.0.jpg")
+	// picUrl eg: "/Users/shenyue/Downloads/test.jpg"
+	file, errFile1 := os.Open(picUrl)
 	defer file.Close()
-	part1, errFile1 := writer.CreateFormFile("file", filepath.Base("/Users/shenyue/Downloads/图标2.0.jpg"))
+	part1, errFile1 := writer.CreateFormFile("file", filepath.Base(picUrl))
 	_, errFile1 = io.Copy(part1, file)
 	if errFile1 != nil {
 		fmt.Println(errFile1)
@@ -38,8 +39,7 @@ func DaoFormRequest(requestUrl string) (resp model.BaseResp, err error) {
 		fmt.Println(err)
 		return
 	}
-	//s, _ := ioutil.ReadAll(req.Body)
-	//bodyStr := string(s)
+
 	bodyStrMds := Md5("")
 
 	timestamp := strconv.FormatInt(time.Now().Unix(), 10)
@@ -47,11 +47,11 @@ func DaoFormRequest(requestUrl string) (resp model.BaseResp, err error) {
 	req.Header.Add("Accept", "application/json")
 	req.Header.Add("x-bili-timestamp", timestamp)
 	req.Header.Add("x-bili-signature-method", "HMAC-SHA256")
-	req.Header.Add("x-bili-signature-version", model.BiliVersionV2)
+	req.Header.Add("x-bili-signature-version", version)
 	req.Header.Add("x-bili-signature-nonce", nonce)
-	req.Header.Add("x-bili-accesskeyid", model.ClientIdProd)
+	req.Header.Add("x-bili-accesskeyid", clientId)
 	req.Header.Add("x-bili-content-md5", bodyStrMds)
-	req.Header.Add("access-token", model.AccessTokenProd)
+	req.Header.Add("access-token", accessToken)
 	req.Header.Add("Content-Type", writer.FormDataContentType())
 
 	header := &model.CommonHeader{
@@ -59,15 +59,15 @@ func DaoFormRequest(requestUrl string) (resp model.BaseResp, err error) {
 		ContentAcceptType: model.JsonType,
 		Timestamp:         timestamp,
 		SignatureMethod:   model.HmacSha256,
-		SignatureVersion:  model.BiliVersionV2,
+		SignatureVersion:  version,
 		Authorization:     "",
 		Nonce:             nonce, //用于幂等,记得替换
-		AccessKeyId:       model.ClientIdProd,
+		AccessKeyId:       clientId,
 		ContentMD5:        bodyStrMds,
-		AccessToken:       model.AccessTokenProd,
+		AccessToken:       accessToken,
 	}
 
-	req.Header.Add("Authorization", CreateSignature(header, model.AppSecretProd))
+	req.Header.Add("Authorization", CreateSignature(header, appSecret))
 
 	res, err := client.Do(req)
 	if err != nil {

@@ -9,26 +9,33 @@ import (
 )
 
 // ApiRequest http request demo方法
-func ApiRequest(reqJson, requestUrl string) (resp model.BaseResp, err error) {
+// reqJson 请求参数json
+// requestUrl 请求url
+// method 请求方法
+// clientId 应用id
+// accessToken 应用token
+// appSecret 应用秘钥
+// version 版本号 "1.0" "2.0"
+func ApiRequest(reqJson, requestUrl, method, clientId, accessToken, appSecret, version string) (resp model.BaseResp, err error) {
 	resp = model.BaseResp{}
 	header := &model.CommonHeader{
 		ContentType:       model.JsonType,
 		ContentAcceptType: model.JsonType,
 		Timestamp:         strconv.FormatInt(time.Now().Unix(), 10),
 		SignatureMethod:   model.HmacSha256,
-		SignatureVersion:  model.BiliVersion,
+		SignatureVersion:  version,
 		Authorization:     "",
 		Nonce:             strconv.FormatInt(time.Now().UnixNano(), 10), //用于幂等,记得替换
-		AccessKeyId:       model.ClientIdProd,
+		AccessKeyId:       clientId,
 		ContentMD5:        Md5(reqJson),
-		AccessToken:       model.AccessTokenProd,
+		AccessToken:       accessToken,
 	}
-	header.Authorization = CreateSignature(header, model.AppSecretProd)
+	header.Authorization = CreateSignature(header, appSecret)
 	fmt.Println(requestUrl)
 	fmt.Println(ToMap(header))
 
 	cli := request.Client{
-		Method: "POST",
+		Method: method,
 		URL:    fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl),
 		Header: ToMap(header),
 		String: reqJson,
