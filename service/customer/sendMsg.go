@@ -9,6 +9,7 @@ import (
 
 // SendMsg 新增共享
 func SendMsg(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
+	url := model.ConversationSendMsgUrl
 	queryReq := model.OpenMarketCustomerSendMsgReq{
 		MsgType:        1,
 		ConversationId: 115957154487296,
@@ -16,7 +17,7 @@ func SendMsg(clientId, accessToken, appSecret string) (resp model.BaseResp, err 
 		UserOpenId:     "",
 	}
 	queryReqJson, _ := json.Marshal(queryReq)
-	resp, err = dao.ApiRequest(string(queryReqJson), model.ConversationSendMsgUrl)
+	resp, err = dao.ApiRequest(string(queryReqJson), url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 	if err != nil {
 		fmt.Printf("SendMsg err:%+v", err)
 	}

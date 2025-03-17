@@ -8,7 +8,7 @@ import (
 )
 
 // CommonAddShare 新增共享
-func CommonAddShare(bizCode string) (resp model.BaseResp, err error) {
+func CommonAddShare(clientId, accessToken, appSecret, bizCode string) (resp model.BaseResp, err error) {
 	// 创建一个 CommonMsg 对象
 	commonMsg := model.CommonMsg{
 		Source:  "",
@@ -34,5 +34,5 @@ func CommonAddShare(bizCode string) (resp model.BaseResp, err error) {
 		SceneCode: model.SceneCode,
 	}
 	commonAddShareReqJson, _ := json.Marshal(commonAddShareReq)
-	return dao.ApiRequest(string(commonAddShareReqJson), "/arcopen/fn/resource/add_share")
+	return dao.ApiRequest(string(commonAddShareReqJson), model.ResourceAddShareUrl, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }

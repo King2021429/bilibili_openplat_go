@@ -18,20 +18,20 @@ const (
 
 const (
 	// RESOURCE
-	resourceAddShareUrl = "/arcopen/fn/resource/add_share" // 新增共享 POST
+	ResourceAddShareUrl = "/arcopen/fn/resource/add_share" // 新增共享 POST
 )
 
 // USER_DATA
 const (
-	dataUserStatUrl = "/arcopen/fn/data/user/stat" // 获取用户数据 GET
+	DataUserStatUrl = "/arcopen/fn/data/user/stat" // 获取用户数据 GET
 )
 
 const (
 	// SHOP_STORE_INFO
-	shopInfoGetUrl = "/arcopen/fn/v2/market/shop/info/get" // 获取店铺信息 GET
+	ShopInfoGetUrl = "/arcopen/fn/v2/market/shop/info/get" // 获取店铺信息 GET
 
 	// SHOP_COMMODITY_INFO
-	productAddUrl            = "/arcopen/fn/market/common/product_add"                      // 商品发布 POST
+	ProductAddUrl            = "/arcopen/fn/market/common/product_add"                      // 商品发布 POST
 	itemListUrl              = "/arcopen/fn/v2/market/commodity/item/list"                  // 查询商品列表 GET
 	productGetPublishRuleUrl = "/arcopen/fn/market/common/product_get_product_publish_rule" // 查询发品配置 POST
 

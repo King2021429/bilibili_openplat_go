@@ -12,7 +12,7 @@ func StockUpdate(clientId, accessToken, appSecret string) (resp model.BaseResp, 
 	url := model.StockUpdate
 	queryReq := model.StockUpdateReq{}
 	queryReqJson, _ := json.Marshal(queryReq)
-	resp, err = dao.ApiGetRequest(string(queryReqJson), url)
+	resp, err = dao.ApiRequest(string(queryReqJson), url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 	if err != nil {
 		fmt.Printf("StockUpdate err:%+v", err)
 	}
