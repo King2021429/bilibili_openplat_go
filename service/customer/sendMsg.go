@@ -8,7 +8,7 @@ import (
 )
 
 // SendMsg 新增共享
-func SendMsg() (resp model.BaseResp, err error) {
+func SendMsg(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	queryReq := model.OpenMarketCustomerSendMsgReq{
 		MsgType:        1,
 		ConversationId: 115957154487296,

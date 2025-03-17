@@ -31,8 +31,8 @@ func ApiRequest(reqJson, requestUrl, method, clientId, accessToken, appSecret, v
 		AccessToken:       accessToken,
 	}
 	header.Authorization = CreateSignature(header, appSecret)
-	fmt.Println(requestUrl)
-	fmt.Println(ToMap(header))
+	fmt.Printf("\n请求url:%s", requestUrl)
+	fmt.Printf("\n请求头:%s", ToMap(header))
 
 	cli := request.Client{
 		Method: method,
@@ -42,11 +42,14 @@ func ApiRequest(reqJson, requestUrl, method, clientId, accessToken, appSecret, v
 	}
 
 	// 打印请求的cURL命令
-	fmt.Println("cURL Command:")
-
 	cliResp := cli.Send().Scan(&resp)
 	if !cliResp.OK() {
 		err = fmt.Errorf("[error] req:%+v resp:%+v err:%+v", reqJson, resp, cliResp.Error())
 	}
+	fmt.Printf("\n返回参数code:%s", resp.Code)
+	fmt.Printf("\n返回参数message:%s", resp.Message)
+	fmt.Printf("\n返回参数request_id:%s", resp.RequestId)
+	fmt.Printf("\n返回参数data:%+v", resp.Data)
+
 	return
 }

@@ -8,7 +8,7 @@ import (
 )
 
 // StockUpdate 库存更新
-func StockUpdate() (resp model.BaseResp, err error) {
+func StockUpdate(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.StockUpdate
 	queryReq := model.StockUpdateReq{}
 	queryReqJson, _ := json.Marshal(queryReq)

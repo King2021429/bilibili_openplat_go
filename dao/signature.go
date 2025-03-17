@@ -14,6 +14,7 @@ import (
 // CreateSignature 生成Authorization加密串
 func CreateSignature(header *model.CommonHeader, accessKeySecret string) string {
 	sStr := ToSortedString(header)
+	fmt.Printf("\n签名:参与加密的字符串:%s", sStr)
 	return HmacSHA256(accessKeySecret, sStr)
 }
 

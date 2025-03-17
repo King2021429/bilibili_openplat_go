@@ -8,14 +8,14 @@ import (
 )
 
 // VideoInit 文件上传预处理
-func VideoInit() (resp model.BaseResp, err error) {
+func VideoInit(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArcInitUrl
 	videoInitReq := model.VideoInitReq{
 		Name:  "test.mp4",
 		Utype: "0",
 	}
 	videoInitReqJson, _ := json.Marshal(videoInitReq)
-	resp, err = dao.ApiRequestV2(string(videoInitReqJson), url)
+	resp, err = dao.ApiRequest(string(videoInitReqJson), url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 	if err != nil {
 		fmt.Printf("VideoInit err:%+v", err)
 	}

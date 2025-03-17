@@ -7,10 +7,10 @@ import (
 )
 
 // VideoArcComplete 合片
-func VideoArcComplete() (resp model.BaseResp, err error) {
+func VideoArcComplete(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArcComplete
 
-	resp, err = dao.ApiRequestV2("", url)
+	resp, err = dao.ApiRequest("", url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 	if err != nil {
 		fmt.Printf("VideoArcComplete err:%+v", err)
 	}

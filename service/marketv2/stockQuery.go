@@ -7,9 +7,9 @@ import (
 )
 
 // StockQuery 新增共享
-func StockQuery() (resp model.BaseResp, err error) {
+func StockQuery(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.StockUpdate
-	resp, err = dao.ApiGetRequest("", url)
+	resp, err = dao.ApiRequest("", url)
 	if err != nil {
 		fmt.Printf("StockQuery err:%+v", err)
 	}

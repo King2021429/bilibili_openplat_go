@@ -14,6 +14,15 @@ const (
 	arcTypeList    = "/arcopen/fn/archive/type/list"                                                    // 分区查询 GET
 	arcCoverUpload = "/arcopen/fn/archive/cover/upload"                                                 // 封面上传 POST
 
+)
+
+const (
+	// RESOURCE
+	resourceAddShareUrl = "/arcopen/fn/resource/add_share" // 新增共享 POST
+)
+
+// USER_DATA
+const (
 	dataUserStatUrl = "/arcopen/fn/data/user/stat" // 获取用户数据 GET
 )
 
@@ -26,15 +35,24 @@ const (
 	itemListUrl              = "/arcopen/fn/v2/market/commodity/item/list"                  // 查询商品列表 GET
 	productGetPublishRuleUrl = "/arcopen/fn/market/common/product_get_product_publish_rule" // 查询发品配置 POST
 
+	// SHOP_STOCK_INFO
 	StockQuery  = "/arcopen/fn/v2/market/stock/query"  // 库存查询 GET
 	StockUpdate = "/arcopen/fn/v2/market/stock/update" // 库存更新 POST
+)
 
-	// 客服模块
+// SHOP_BA_CHAT
+const (
 	ConversationSendMsgUrl        = "/arcopen/fn/market/customer/conversation/send_msg"            // 客服系统 消息发送
 	conversationCustomerUserFrom  = "/arcopen/fn/market/customer/conversation/user_from"           // 客服系统 获取用户来源
 	conversationStaffStatusUpdate = "/arcopen/fn/market/customer/conversation/staff_status_update" // 客服系统 修改客服状态
 	conversationClose             = "/arcopen/fn/market/customer/conversation/close"               // 客服系统 关闭
+)
 
+// COPYRIGHT_MUSIC_DATA
+const (
+	musicMetaListUrl = "/arcopen/fn/music/meta/list" // 音乐列表 获取媒体元数据
+	musicListUrl     = "/arcopen/fn/music/list"      // 音乐列表 获取媒体资源信息
+	musicSearch      = "/arcopen/fn/music/search"    // 音乐搜索
 )
 
 // 图片上传url模块
@@ -46,5 +64,5 @@ const (
 	ImageUploadCommodityUrl = "https://member.bilibili.com/arcopen/fn/v2/market/commodity/image/upload"
 
 	// ImageUploadCustomer 客服图片上传
-	ImageUploadCustomer = "https://uat-member.bilibili.com/arcopen/fn/market/customer/image_upload"
+	ImageUploadCustomer = "https://member.bilibili.com/arcopen/fn/market/customer/image_upload"
 )
