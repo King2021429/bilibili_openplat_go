@@ -5,7 +5,7 @@ import (
 	"openplat/model"
 )
 
-func ImageUpload(picPath string) (resp model.BaseResp, err error) {
+func ImageUpload(picPath, clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ImageUploadCustomer
-	return dao.PicRequest(url, picPath)
+	return dao.PicRequest(url, picPath, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
