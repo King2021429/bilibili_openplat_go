@@ -26,6 +26,18 @@ const (
 	DataUserStatUrl = "/arcopen/fn/data/user/stat" // 获取用户数据 GET
 )
 
+// ARC_DATA
+const (
+	ArcStatUrl  = "/arcopen/fn/data/arc/stat"      // 获取单个稿件数据 GET
+	ArcIncStats = "/arcopen/fn/data/arc/inc-stats" // 获取整体稿件增量数据 GET
+)
+
+// ATC_DATA
+const (
+	ArtStatUrl  = "/arcopen/fn/data/art/stat"      // 获取单一专栏数据 GET
+	ArtIncStats = "/arcopen/fn/data/art/inc-stats" // 获取整体投稿增量数据 GET
+)
+
 const (
 	// SHOP_STORE_INFO
 	ShopInfoGetUrl = "/arcopen/fn/v2/market/shop/info/get" // 获取店铺信息 GET
