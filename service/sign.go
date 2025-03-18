@@ -47,7 +47,7 @@ func Sign(clientId, accessToken, appSecret string) {
 
 func Oauth(clientId, appSecret string) {
 	// 基础 URL
-	baseURL := "https://uat-api.bilibili.com/x/account-oauth2/v1/token"
+	baseURL := "https://api.bilibili.com/x/account-oauth2/v1/token"
 
 	reader := bufio.NewReader(os.Stdin)
 
