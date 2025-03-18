@@ -40,9 +40,10 @@ func main() {
 
 	fmt.Print("请输入对应方法:" +
 		"0: 计算签名" +
-		"1: 查询用户账号信息 " +
-		"2: 查询用户已授权权限列表 " +
-		"3: 方法" +
+		"1: 获取授权 " +
+		"2: 获取用户信息 " +
+		"3: 查询用户已授权权限列表 " +
+		"4: 方法" +
 		"q: 退出")
 	input, err := reader.ReadString('\n')
 	if err != nil {
@@ -55,7 +56,7 @@ func main() {
 	case "0":
 		service.Sign(clientID, accessToken, appSecret)
 	case "1":
-		service.Sign(clientID, accessToken, appSecret)
+		service.Oauth(clientID, appSecret)
 	case "2":
 		_, _ = service.AccountInfo(clientID, accessToken, appSecret)
 	case "3":

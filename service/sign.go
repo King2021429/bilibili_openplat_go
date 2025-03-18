@@ -45,6 +45,35 @@ func Sign(clientId, accessToken, appSecret string) {
 	return
 }
 
-func Oauth(clientId, accessToken, appSecret string) {
+func Oauth(clientId, appSecret string) {
+	// 基础 URL
+	baseURL := "https://uat-api.bilibili.com/x/account-oauth2/v1/token"
+
+	reader := bufio.NewReader(os.Stdin)
+
+	// 输入 client_id
+	fmt.Print("请输入 code: ")
+	code, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	code = code[:len(code)-1]
+	// 参数字典
+	params := map[string]string{
+		"client_id":     clientId,
+		"client_secret": appSecret,
+		"grant_type":    "authorization_code",
+		"code":          code,
+	}
+
+	// 调用拼接函数
+	fullURL, err := dao.BuildURL(baseURL, params)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	// 打印拼接好的完整 URL
+	fmt.Println("Full URL:", fullURL)
+	dao.OauthReq(fullURL)
 
 }
