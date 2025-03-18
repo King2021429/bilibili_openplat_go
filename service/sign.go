@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-func Sign(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
+func Sign(clientId, accessToken, appSecret string) {
 	reader := bufio.NewReader(os.Stdin)
 	// 输入 access_token
 	fmt.Print("请输入reqJson串: ")
@@ -28,7 +28,6 @@ func Sign(clientId, accessToken, appSecret string) (resp model.BaseResp, err err
 		log.Fatalf("读取输入时出错: %v", err)
 	}
 	reqJson = reqJson[:len(reqJson)-1]
-	resp = model.BaseResp{}
 	header := &model.CommonHeader{
 		ContentType:       model.JsonType,
 		ContentAcceptType: model.JsonType,
@@ -44,4 +43,8 @@ func Sign(clientId, accessToken, appSecret string) (resp model.BaseResp, err err
 	header.Authorization = dao.CreateSignature(header, appSecret)
 	fmt.Printf("\n请求头:%s", dao.ToMap(header))
 	return
+}
+
+func Oauth(clientId, accessToken, appSecret string) {
+
 }

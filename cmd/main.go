@@ -53,18 +53,20 @@ func main() {
 
 	switch input {
 	case "0":
-		_, _ = service.Sign(clientID, accessToken, appSecret)
+		service.Sign(clientID, accessToken, appSecret)
 	case "1":
-		_, _ = service.AccountInfo(clientID, accessToken, appSecret)
+		service.Sign(clientID, accessToken, appSecret)
 	case "2":
-		_, _ = service.AccountScope(clientID, accessToken, appSecret)
+		_, _ = service.AccountInfo(clientID, accessToken, appSecret)
 	case "3":
-		_, _ = service.ConversationSendMsg(clientID, accessToken, appSecret, "")
+		_, _ = service.AccountScope(clientID, accessToken, appSecret)
 	case "4":
-		_, _ = service.ConversationCustomerUserFrom(clientID, accessToken, appSecret, "")
+		_, _ = service.ConversationSendMsg(clientID, accessToken, appSecret, "")
 	case "5":
-		_, _ = service.ConversationStaffStatusUpdate(clientID, accessToken, appSecret, "")
+		_, _ = service.ConversationCustomerUserFrom(clientID, accessToken, appSecret, "")
 	case "6":
+		_, _ = service.ConversationStaffStatusUpdate(clientID, accessToken, appSecret, "")
+	case "7":
 		_, _ = service.ConversationClose(clientID, accessToken, appSecret, "")
 
 	case "q":
