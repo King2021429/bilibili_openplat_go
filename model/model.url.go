@@ -47,6 +47,30 @@ const (
 	itemListUrl              = "/arcopen/fn/v2/market/commodity/item/list"                  // 查询商品列表 GET
 	productGetPublishRuleUrl = "/arcopen/fn/market/common/product_get_product_publish_rule" // 查询发品配置 POST
 
+	// SHOP_ORDER_INFO 订单
+	OrderBatchDecrypt = "/arcopen/fn/market/common/order_batch_decrypt" //订单敏感信息解密
+	OrderReview       = "/arcopen/fn/market/common/order_review"        //流量卡审核信息回传
+	OrderRemark       = "/arcopen/fn/market/common/order_remark"        // 商家备注
+	OrderDetail       = "/arcopen/fn/market/common/order_detail"        // 订单详情查询
+	OrderSearchList   = "/arcopen/fn/market/common/order_searchList"    // 订单列表查询
+
+	// SHOP_LOGISTICS_INFO
+	LogisticsAdd                 = "/arcopen/fn/market/common/logistics_add"                   // 发货回掉
+	LogisticsEdit                = "/arcopen/fn/market/common/logistics_edit"                  // 物流编辑
+	LogisticsCompanyList         = "/arcopen/fn/market/common/logistics_company_list"          // 获取快递公司列表
+	AddressCreate                = "/arcopen/fn/market/common/address_create"                  // 地址库创建
+	AddressList                  = "/arcopen/fn/market/common/address/list"                    // 批量查询地址库列表
+	AddressGetProvince           = "/arcopen/fn/market/common/address_get_province"            // 获取全量省份信息
+	AddressGetAreasByProvince    = "/arcopen/fn/market/common/address_get_areas_by_province"   // 根据省获取全量三级地址
+	LogisticsFreightTemplateList = "/arcopen/fn/market/common/logistics_freight_template_list" // 运费模板列表查询
+
+	// SHOP_AFTERSALES_INFO 售后
+	AfterSaleQueryList      = "/arcopen/fn/market/common/after_sale_query_list"       // 售后列表查询
+	AfterSaleQueryDetail    = "/arcopen/fn/market/common/after_sale_query_detail"     // 售后详情查询
+	AfterSaleCheckAfterSale = "/arcopen/fn/market/common/after_sale_check_after_sale" // 售后审核
+	AfterSaleConfirmReceipt = "/arcopen/fn/market/common/after_sale_confirm_receipt"  // 确认收货
+	AfterSaleBarterShip     = "/arcopen/fn/market/common/after_sale_barter_ship"      // 换货发货
+	AfterSaleStop           = "/arcopen/fn/market/common/after_sale_stop"             // 售后终止
 	// SHOP_STOCK_INFO
 	StockQuery  = "/arcopen/fn/v2/market/stock/query"  // 库存查询 GET
 	StockUpdate = "/arcopen/fn/v2/market/stock/update" // 库存更新 POST
