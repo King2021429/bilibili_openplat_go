@@ -31,6 +31,7 @@ const (
 	ArticleBelong   = "/arcopen/fn/article/belong"           // 文集下文章列表修改
 	AnthologyDelete = "/arcopen/fn/article/anthology/delete" // 文集删除
 	AnthologyList   = "/arcopen/fn/article/anthology/list"   // 文集列表查询
+	AnthologyDetail = "/arcopen/fn/article/anthology/detail" // 文集详情查询
 )
 
 const (
@@ -117,6 +118,9 @@ const (
 const (
 	// ImageUploadArcUrl 稿件图片上传
 	ImageUploadArcUrl = "https://member.bilibili.com/arcopen/fn/archive/cover/upload"
+
+	// ImageUploadArticleUrl 专栏稿件上传
+	ImageUploadArticleUrl = "https://member.bilibili.com/arcopen/fn/article/upload/image"
 
 	// ImageUploadCommodityUrl 商品图片上传
 	ImageUploadCommodityUrl = "https://member.bilibili.com/arcopen/fn/v2/market/commodity/image/upload"
