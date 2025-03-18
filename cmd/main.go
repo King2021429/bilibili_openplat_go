@@ -49,6 +49,10 @@ func main() {
 	switch input {
 	case "1":
 		_, _ = service.AccountInfo(clientID, accessToken, appSecret)
+	case "2":
+		_, _ = service.ArcTypeList(clientID, accessToken, appSecret)
+	case "3":
+		_, _ = service.ArcAddFetch(clientID, accessToken, appSecret, "")
 	//case "2":
 	//	method2()
 	//case "3":
