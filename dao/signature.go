@@ -20,6 +20,7 @@ func CreateSignature(header *model.CommonHeader, accessKeySecret string) string 
 
 // Md5 md5加密
 func Md5(str string) (md5str string) {
+	fmt.Printf("\n签名:参与md5的字符串:%s", str)
 	data := []byte(str)
 	has := md5.Sum(data)
 	md5str = fmt.Sprintf("%x", has)

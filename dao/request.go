@@ -1,6 +1,7 @@
 package dao
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/monaco-io/request"
 	"openplat/model"
@@ -49,7 +50,13 @@ func ApiRequest(reqJson, requestUrl, method, clientId, accessToken, appSecret, v
 	fmt.Printf("\n返回参数code:%d", resp.Code)
 	fmt.Printf("\n返回参数message:%s", resp.Message)
 	fmt.Printf("\n返回参数request_id:%s", resp.RequestId)
-	fmt.Printf("\n返回参数data:%+v", resp.Data)
+	// 格式化打印Data字段
+	dataJSON, err := json.MarshalIndent(resp.Data, "", "  ")
+	if err != nil {
+		fmt.Printf("\n返回参数data: 格式化失败, %v", err)
+	} else {
+		fmt.Printf("\n返回参数data:\n%s", string(dataJSON))
+	}
 
 	return
 }

@@ -38,7 +38,12 @@ func main() {
 	}
 	appSecret = appSecret[:len(appSecret)-1]
 
-	fmt.Print("请输入对应权限点 (1: 方法 1, 2: 方法 2, 3: 方法 3, q: 退出): ")
+	fmt.Print("请输入对应方法:" +
+		"0: 计算签名" +
+		"1: 查询用户已授权权限列表 " +
+		"2: 方法 " +
+		"3: 方法" +
+		"q: 退出")
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		log.Fatalf("读取输入时出错: %v", err)
@@ -47,6 +52,8 @@ func main() {
 	input = input[:len(input)-1]
 
 	switch input {
+	case "0":
+		_, _ = service.Sign(clientID, accessToken, appSecret)
 	case "1":
 		_, _ = service.AccountInfo(clientID, accessToken, appSecret)
 	case "2":

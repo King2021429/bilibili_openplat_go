@@ -36,5 +36,5 @@ func CommonAddShare(clientId, accessToken, appSecret, bizCode string) (resp mode
 		SceneCode: model.SceneCode,
 	}
 	commonAddShareReqJson, _ := json.Marshal(commonAddShareReq)
-	return dao.ApiRequest(string(commonAddShareReqJson), model.ResourceAddShareUrl, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ApiRequest(string(commonAddShareReqJson), model.ResourceAddShareUrl, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersion)
 }

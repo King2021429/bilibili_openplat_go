@@ -56,19 +56,19 @@ func ArcEdit(clientId, accessToken, appSecret string, reqJson string) (resp mode
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
-// ArcDel      = "/arcopen/fn/archive/delete"                                                       // 稿件删除
+// ArcDel 稿件删除
 func ArcDel(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcDel
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
-// ArcView     = "/arcopen/fn/archive/view"                                                         // 稿件查询
+// ArcView 稿件查询
 func ArcView(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcView
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
-// ArcViewList = "/arcopen/fn/archive/viewlist"
+// ArcViewList 稿件列表查询
 func ArcViewList(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcViewList
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
