@@ -7,6 +7,8 @@ import (
 	"openplat/model"
 )
 
+// 唯一一个v1签名
+
 // CommonAddShare 新增共享
 func CommonAddShare(clientId, accessToken, appSecret, bizCode string) (resp model.BaseResp, err error) {
 	// 创建一个 CommonMsg 对象

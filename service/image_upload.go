@@ -22,3 +22,9 @@ func ImageUploadCommodity(picPath, clientId, accessToken, appSecret string) (res
 	url := model.ImageUploadCommodityUrl
 	return dao.PicRequest(url, picPath, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
+
+// ImageUploadCustomer 客服图片上传
+func ImageUploadCustomer(picPath, clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
+	url := model.ImageUploadCustomer
+	return dao.PicRequest(url, picPath, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
