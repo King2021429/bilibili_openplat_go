@@ -8,12 +8,15 @@ const (
 
 // ARC
 const (
-	ArcInitUrl     = "/arcopen/fn/archive/video/init"                                                   //文件上传预处理
-	ArcComplete    = "/arcopen/fn/archive/video/complete?upload_token=7213c24789bf42b3a3482b7c7d9a597f" // 文件分片合片
-	ArcAddUrl      = "/arcopen/fn/archive/add"                                                          // 稿件提交 POST
-	ArcTypeList    = "/arcopen/fn/archive/type/list"                                                    // 分区查询 GET
-	ArcCoverUpload = "/arcopen/fn/archive/cover/upload"                                                 // 封面上传 POST
-
+	ArcInitUrl  = "/arcopen/fn/archive/video/init"                                                   //文件上传预处理
+	ArcComplete = "/arcopen/fn/archive/video/complete?upload_token=7213c24789bf42b3a3482b7c7d9a597f" // 文件分片合片
+	ArcAddUrl   = "/arcopen/fn/archive/add"                                                          // 稿件提交 POST
+	ArcTypeList = "/arcopen/fn/archive/type/list"                                                    // 分区查询 GET "/arcopen/fn/archive/add-by-utoken", arcAddByUTokenMock) // 稿件提交(utoken)
+	ArcAddFetch = "/arcopen/fn/archive/add-fetch"                                                    // 稿件提交fetch模式
+	ArcEdit     = "/arcopen/fn/archive/edit"                                                         // 稿件编辑
+	ArcDel      = "/arcopen/fn/archive/delete"                                                       // 稿件删除
+	ArcView     = "/arcopen/fn/archive/view"                                                         // 稿件查询
+	ArcViewList = "/arcopen/fn/archive/viewlist"                                                     // 稿件列表查询
 )
 
 const (
@@ -25,6 +28,7 @@ const (
 	ArticleList       = "/arcopen/fn/article/list"
 	ArticleCategories = "/arcopen/fn/article/category"
 	ArticleCard       = "/arcopen/fn/article/card" // 获取视频、文章卡片信息 GET
+
 	// 文集
 	AnthologyAdd    = "/arcopen/fn/article/anthology/add"    // 文集提交
 	AnthologyEdit   = "/arcopen/fn/article/anthology/edit"   // 文集信息编辑
