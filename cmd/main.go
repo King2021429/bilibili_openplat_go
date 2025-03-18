@@ -57,13 +57,11 @@ func main() {
 	case "1":
 		_, _ = service.AccountInfo(clientID, accessToken, appSecret)
 	case "2":
-		_, _ = service.ArcTypeList(clientID, accessToken, appSecret)
+		_, _ = service.AccountScope(clientID, accessToken, appSecret)
 	case "3":
-		_, _ = service.ArcAddFetch(clientID, accessToken, appSecret, "")
-	//case "2":
-	//	method2()
-	//case "3":
-	//	method3()
+		_, _ = service.ConversationSendMsg(clientID, accessToken, appSecret, "")
+	case "4":
+		_, _ = service.ConversationCustomerUserFrom(clientID, accessToken, appSecret, "")
 	case "q":
 		fmt.Println("退出程序")
 		return
