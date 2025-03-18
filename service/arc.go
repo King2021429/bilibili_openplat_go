@@ -31,3 +31,45 @@ func VideoArcComplete(clientId, accessToken, appSecret string) (resp model.BaseR
 	}
 	return
 }
+
+// ArcAddUrl 稿件提交 POST
+func ArcAddUrl(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+	url := model.ArcAddUrl
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
+
+// ArcTypeList 分区查询 GET
+func ArcTypeList(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
+	url := model.ArcTypeList
+	return dao.ApiRequest("", url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
+
+// ArcAddFetch 稿件提交fetch模式
+func ArcAddFetch(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+	url := model.ArcAddFetch
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
+
+// ArcEdit 稿件编辑
+func ArcEdit(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+	url := model.ArcEdit
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
+
+// ArcDel      = "/arcopen/fn/archive/delete"                                                       // 稿件删除
+func ArcDel(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+	url := model.ArcDel
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
+
+// ArcView     = "/arcopen/fn/archive/view"                                                         // 稿件查询
+func ArcView(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+	url := model.ArcView
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
+
+// ArcViewList = "/arcopen/fn/archive/viewlist"
+func ArcViewList(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+	url := model.ArcViewList
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
