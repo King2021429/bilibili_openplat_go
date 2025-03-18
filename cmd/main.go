@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"log"
-	"openplat/service/user"
+	"openplat/service"
 	"os"
 )
 
@@ -48,7 +48,7 @@ func main() {
 
 	switch input {
 	case "1":
-		_, _ = user.AccountInfo(clientID, accessToken, appSecret)
+		_, _ = service.AccountInfo(clientID, accessToken, appSecret)
 	//case "2":
 	//	method2()
 	//case "3":
