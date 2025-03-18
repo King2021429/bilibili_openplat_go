@@ -10,10 +10,27 @@ const (
 const (
 	ArcInitUrl     = "/arcopen/fn/archive/video/init"                                                   //文件上传预处理
 	ArcComplete    = "/arcopen/fn/archive/video/complete?upload_token=7213c24789bf42b3a3482b7c7d9a597f" // 文件分片合片
-	arcAddUrl      = "/arcopen/fn/archive/add"                                                          // 稿件提交 POST
-	arcTypeList    = "/arcopen/fn/archive/type/list"                                                    // 分区查询 GET
-	arcCoverUpload = "/arcopen/fn/archive/cover/upload"                                                 // 封面上传 POST
+	ArcAddUrl      = "/arcopen/fn/archive/add"                                                          // 稿件提交 POST
+	ArcTypeList    = "/arcopen/fn/archive/type/list"                                                    // 分区查询 GET
+	ArcCoverUpload = "/arcopen/fn/archive/cover/upload"                                                 // 封面上传 POST
 
+)
+
+const (
+	// 文章
+	ArticleAddUrl     = "/arcopen/fn/article/add" // 投稿 POST
+	ArticleEdit       = "/arcopen/fn/article/edit"
+	ArticleDelete     = "/arcopen/fn/article/delete"
+	ArticleDetail     = "/arcopen/fn/article/detail"
+	ArticleList       = "/arcopen/fn/article/list"
+	ArticleCategories = "/arcopen/fn/article/category"
+	ArticleCard       = "/arcopen/fn/article/card" // 获取视频、文章卡片信息 GET
+	// 文集
+	AnthologyAdd    = "/arcopen/fn/article/anthology/add"    // 文集提交
+	AnthologyEdit   = "/arcopen/fn/article/anthology/edit"   // 文集信息编辑
+	ArticleBelong   = "/arcopen/fn/article/belong"           // 文集下文章列表修改
+	AnthologyDelete = "/arcopen/fn/article/anthology/delete" // 文集删除
+	AnthologyList   = "/arcopen/fn/article/anthology/list"   // 文集列表查询
 )
 
 const (
@@ -43,9 +60,14 @@ const (
 	ShopInfoGetUrl = "/arcopen/fn/v2/market/shop/info/get" // 获取店铺信息 GET
 
 	// SHOP_COMMODITY_INFO
-	ProductAddUrl            = "/arcopen/fn/market/common/product_add"                      // 商品发布 POST
-	itemListUrl              = "/arcopen/fn/v2/market/commodity/item/list"                  // 查询商品列表 GET
-	productGetPublishRuleUrl = "/arcopen/fn/market/common/product_get_product_publish_rule" // 查询发品配置 POST
+	ProductAddUrl                  = "/arcopen/fn/market/common/product_add"                      // 商品发布 POST
+	CommodityItemListUrl           = "/arcopen/fn/v2/market/commodity/item/list"                  // 查询商品列表 GET
+	ProductGetPublishRuleUrl       = "/arcopen/fn/market/common/product_get_product_publish_rule" // 查询发品配置 POST
+	ProductDetail                  = "/arcopen/fn/market/common/product/detail"
+	ProductEdit                    = "/arcopen/fn/market/common/product/edit"
+	ProductDel                     = "/arcopen/fn/market/common/product/del"
+	ProductGetCateProperty         = "/arcopen/fn/market/common/product/get_cate_property"
+	CommodityCategoryQualifiedList = "/arcopen/fn/market/commodity/category/qualified/list"
 
 	// SHOP_ORDER_INFO 订单
 	OrderBatchDecrypt = "/arcopen/fn/market/common/order_batch_decrypt" //订单敏感信息解密
@@ -79,16 +101,16 @@ const (
 // SHOP_BA_CHAT
 const (
 	ConversationSendMsgUrl        = "/arcopen/fn/market/customer/conversation/send_msg"            // 客服系统 消息发送
-	conversationCustomerUserFrom  = "/arcopen/fn/market/customer/conversation/user_from"           // 客服系统 获取用户来源
-	conversationStaffStatusUpdate = "/arcopen/fn/market/customer/conversation/staff_status_update" // 客服系统 修改客服状态
-	conversationClose             = "/arcopen/fn/market/customer/conversation/close"               // 客服系统 关闭
+	ConversationCustomerUserFrom  = "/arcopen/fn/market/customer/conversation/user_from"           // 客服系统 获取用户来源
+	ConversationStaffStatusUpdate = "/arcopen/fn/market/customer/conversation/staff_status_update" // 客服系统 修改客服状态
+	ConversationClose             = "/arcopen/fn/market/customer/conversation/close"               // 客服系统 关闭
 )
 
 // COPYRIGHT_MUSIC_DATA
 const (
-	musicMetaListUrl = "/arcopen/fn/music/meta/list" // 音乐列表 获取媒体元数据
-	musicListUrl     = "/arcopen/fn/music/list"      // 音乐列表 获取媒体资源信息
-	musicSearch      = "/arcopen/fn/music/search"    // 音乐搜索
+	MusicMetaListUrl = "/arcopen/fn/music/meta/list" // 音乐列表 获取媒体元数据
+	MusicListUrl     = "/arcopen/fn/music/list"      // 音乐列表 获取媒体资源信息
+	MusicSearch      = "/arcopen/fn/music/search"    // 音乐搜索
 )
 
 // 图片上传url模块

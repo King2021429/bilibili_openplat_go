@@ -46,7 +46,7 @@ func ApiRequest(reqJson, requestUrl, method, clientId, accessToken, appSecret, v
 	if !cliResp.OK() {
 		err = fmt.Errorf("[error] req:%+v resp:%+v err:%+v", reqJson, resp, cliResp.Error())
 	}
-	fmt.Printf("\n返回参数code:%s", resp.Code)
+	fmt.Printf("\n返回参数code:%d", resp.Code)
 	fmt.Printf("\n返回参数message:%s", resp.Message)
 	fmt.Printf("\n返回参数request_id:%s", resp.RequestId)
 	fmt.Printf("\n返回参数data:%+v", resp.Data)
