@@ -40,8 +40,8 @@ func main() {
 
 	fmt.Print("请输入对应方法:" +
 		"0: 计算签名" +
-		"1: 查询用户已授权权限列表 " +
-		"2: 方法 " +
+		"1: 查询用户账号信息 " +
+		"2: 查询用户已授权权限列表 " +
 		"3: 方法" +
 		"q: 退出")
 	input, err := reader.ReadString('\n')
@@ -62,6 +62,11 @@ func main() {
 		_, _ = service.ConversationSendMsg(clientID, accessToken, appSecret, "")
 	case "4":
 		_, _ = service.ConversationCustomerUserFrom(clientID, accessToken, appSecret, "")
+	case "5":
+		_, _ = service.ConversationStaffStatusUpdate(clientID, accessToken, appSecret, "")
+	case "6":
+		_, _ = service.ConversationClose(clientID, accessToken, appSecret, "")
+
 	case "q":
 		fmt.Println("退出程序")
 		return

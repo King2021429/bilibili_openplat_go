@@ -6,7 +6,7 @@ import (
 	"openplat/model"
 )
 
-// AccountInfo 查询用户已授权权限列表
+// AccountInfo 查询用户账号信息
 func AccountInfo(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.AccountInfoUrl
 	resp, err = dao.ApiRequest("", url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
