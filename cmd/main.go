@@ -39,12 +39,17 @@ func main() {
 	appSecret = appSecret[:len(appSecret)-1]
 
 	fmt.Print("请输入对应方法:" +
-		"0: 计算签名" +
-		"1: 获取授权 " +
-		"2: 获取用户信息 " +
-		"3: 查询用户已授权权限列表 " +
-		"4: 方法" +
-		"q: 退出")
+		"0: 计算签名\n" +
+		"1: 获取授权\n" +
+		"2: USER_INFO-获取已授权用户基础公开信息\n" +
+		"3: USER_INFO-查询用户已授权权限列表\n" +
+		"4: ARC_BASE-文件上传预处理\n" +
+		"7: ARC_BASE-文件分片合片\n" +
+		"8: ARC_BASE-视频稿件提交\n" +
+		"9: ARC_BASE-获取用于投稿的连接\n" +
+		"10: ARC_BASE-查询单一视频稿件详情\n" +
+		"11: ARC_BASE-查询用户视频稿件列表\n" +
+		"q: 退出 ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		log.Fatalf("读取输入时出错: %v", err)

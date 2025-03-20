@@ -6,12 +6,11 @@ const (
 	UserScopesUrl  = "/arcopen/fn/user/account/scopes" // 查询用户已授权权限列表 GET
 )
 
-// ARC
+// ARC_BASE
 const (
 	ArcInitUrl  = "/arcopen/fn/archive/video/init"                                                   //文件上传预处理
 	ArcComplete = "/arcopen/fn/archive/video/complete?upload_token=7213c24789bf42b3a3482b7c7d9a597f" // 文件分片合片
 	ArcAddUrl   = "/arcopen/fn/archive/add"                                                          // 稿件提交 POST
-	ArcTypeList = "/arcopen/fn/archive/type/list"                                                    // 分区查询 GET "/arcopen/fn/archive/add-by-utoken", arcAddByUTokenMock) // 稿件提交(utoken)
 	ArcAddFetch = "/arcopen/fn/archive/add-fetch"                                                    // 稿件提交fetch模式
 	ArcEdit     = "/arcopen/fn/archive/edit"                                                         // 稿件编辑
 	ArcDel      = "/arcopen/fn/archive/delete"                                                       // 稿件删除
@@ -19,6 +18,7 @@ const (
 	ArcViewList = "/arcopen/fn/archive/viewlist"                                                     // 稿件列表查询
 )
 
+// ATC_BASE
 const (
 	// 文章
 	ArticleAddUrl     = "/arcopen/fn/article/add" // 投稿 POST
@@ -39,7 +39,7 @@ const (
 )
 
 const (
-	// RESOURCE
+	// ARC_BASE
 	ResourceAddShareUrl = "/arcopen/fn/resource/add_share" // 新增共享 POST
 )
 
