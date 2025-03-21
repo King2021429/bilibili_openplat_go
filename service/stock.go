@@ -7,7 +7,7 @@ import (
 	"openplat/model"
 )
 
-// StockQuery 新增共享
+// StockQuery 库存查询
 func StockQuery(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.StockQuery
 	resp, err = dao.ApiRequest("", url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)

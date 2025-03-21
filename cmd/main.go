@@ -200,7 +200,6 @@ func main() {
 		// 文集详情查询
 		reqJson := ""
 		_, _ = service.AnthologyDetail(clientID, accessToken, appSecret, reqJson)
-
 	case "26":
 		// 获取用户数据
 		reqJson := ""
@@ -334,22 +333,31 @@ func main() {
 		reqJson := ""
 		_, _ = service.AfterSaleStop(clientID, accessToken, appSecret, reqJson)
 	case "59":
+		// StockQuery 库存查询
 		_, _ = service.StockQuery(clientID, accessToken, appSecret)
 	case "60":
+		// StockUpdate 库存更新
 		_, _ = service.StockUpdate(clientID, accessToken, appSecret)
 	case "61":
+		// 客服系统 消息发送
 		_, _ = service.ConversationSendMsg(clientID, accessToken, appSecret, "")
 	case "62":
+		// 客服系统 获取用户来源
 		_, _ = service.ConversationCustomerUserFrom(clientID, accessToken, appSecret, "")
 	case "63":
+		// 客服系统 修改客服状态
 		_, _ = service.ConversationStaffStatusUpdate(clientID, accessToken, appSecret, "")
 	case "64":
+		// 客服系统 关闭
 		_, _ = service.ConversationClose(clientID, accessToken, appSecret, "")
 	case "65":
+		// MusicMetaList 音乐列表 获取媒体元数据
 		_, _ = service.MusicMetaList(clientID, accessToken, appSecret, "")
 	case "66":
+		// MusicList 音乐列表 获取媒体资源信息
 		_, _ = service.MusicList(clientID, accessToken, appSecret, "")
 	case "67":
+		// MusicSearch 音乐搜索
 		_, _ = service.MusicSearch(clientID, accessToken, appSecret, "")
 	case "68":
 		picUrl := ""
