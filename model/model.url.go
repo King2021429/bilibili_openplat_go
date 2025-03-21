@@ -115,7 +115,7 @@ const (
 const (
 	MusicMetaListUrl = "/arcopen/fn/music/meta/list" // 音乐列表 获取媒体元数据
 	MusicListUrl     = "/arcopen/fn/music/list"      // 音乐列表 获取媒体资源信息
-	MusicSearch      = "/arcopen/fn/music/search"    // 音乐搜索
+	MusicSearchUrl   = "/arcopen/fn/music/search"    // 音乐搜索
 )
 
 // 图片上传url模块

@@ -19,6 +19,6 @@ func MusicList(clientId, accessToken, appSecret string, reqJson string) (resp mo
 
 // MusicSearch 音乐搜索
 func MusicSearch(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
-	url := model.MusicSearch
+	url := model.MusicSearchUrl
 	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
