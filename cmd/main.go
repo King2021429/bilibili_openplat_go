@@ -38,7 +38,6 @@ func main() {
 	}
 	appSecret = appSecret[:len(appSecret)-1]
 
-	// TODO 图片上传
 	// TODO 直播
 	fmt.Print("请输入对应方法:" +
 		"0: 计算签名\n" +
@@ -106,6 +105,10 @@ func main() {
 		"65: COPYRIGHT_MUSIC_DATA-音乐列表 获取媒体元数据\n" +
 		"66: COPYRIGHT_MUSIC_DATA-音乐列表 获取媒体资源信息\n" +
 		"67: COPYRIGHT_MUSIC_DATA-音乐搜索\n" +
+		"68:稿件图片上传\n" +
+		"69:专栏稿件上传\n" +
+		"70:商品图片上传\n" +
+		"71:客服图片上传\n" +
 		"q: 退出 ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
@@ -348,7 +351,22 @@ func main() {
 		_, _ = service.MusicList(clientID, accessToken, appSecret, "")
 	case "67":
 		_, _ = service.MusicSearch(clientID, accessToken, appSecret, "")
-
+	case "68":
+		picUrl := ""
+		// ImageUploadArc 稿件图片上传
+		_, _ = service.ImageUploadArc(picUrl, clientID, accessToken, appSecret)
+	case "69":
+		picUrl := ""
+		// ImageUploadArticle 专栏稿件上传
+		_, _ = service.ImageUploadArticle(picUrl, clientID, accessToken, appSecret)
+	case "70":
+		picUrl := ""
+		// ImageUploadCommodity 商品图片上传
+		_, _ = service.ImageUploadCommodity(picUrl, clientID, accessToken, appSecret)
+	case "71":
+		picUrl := ""
+		// ImageUploadCustomer 客服图片上传
+		_, _ = service.ImageUploadCustomer(picUrl, clientID, accessToken, appSecret)
 	case "q":
 		fmt.Println("退出程序")
 		return
