@@ -201,11 +201,11 @@ func main() {
 		reqJson := ""
 		_, _ = service.AnthologyDetail(clientID, accessToken, appSecret, reqJson)
 	case "26":
-		// 获取用户数据
+		// 获取用户数据 GET
 		reqJson := ""
 		_, _ = service.UserData(clientID, accessToken, appSecret, reqJson)
 	case "27":
-		// 获取单个稿件数据
+		// 获取单个稿件数据 GET
 		reqJson := ""
 		_, _ = service.ArcStat(clientID, accessToken, appSecret, reqJson)
 	case "28":
@@ -217,11 +217,11 @@ func main() {
 		reqJson := ""
 		_, _ = service.ArtStat(clientID, accessToken, appSecret, reqJson)
 	case "30":
-		// 获取整体投稿增量数据
+		// 获取整体投稿增量数据 GET
 		reqJson := ""
 		_, _ = service.ArtIncStats(clientID, accessToken, appSecret, reqJson)
 	case "31":
-		// 获取店铺信息
+		// 获取店铺信息 GET
 		reqJson := ""
 		_, _ = service.ShopInfoGetUrl(clientID, accessToken, appSecret, reqJson)
 	case "32":

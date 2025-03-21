@@ -5,6 +5,7 @@ import (
 	"openplat/model"
 )
 
+// ShopInfoGetUrl 获取店铺信息
 func ShopInfoGetUrl(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ShopInfoGetUrl
 	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
