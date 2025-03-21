@@ -22,7 +22,7 @@ func VideoInit(clientId, accessToken, appSecret string) (resp model.BaseResp, er
 	return
 }
 
-// VideoArcComplete 合片
+// VideoArcComplete 文件分片合片
 func VideoArcComplete(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArcComplete
 	resp, err = dao.ApiRequest("", url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
@@ -36,12 +36,6 @@ func VideoArcComplete(clientId, accessToken, appSecret string) (resp model.BaseR
 func ArcAddUrl(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcAddUrl
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
-}
-
-// ArcTypeList 分区查询 GET
-func ArcTypeList(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
-	url := model.ArcTypeList
-	return dao.ApiRequest("", url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArcAddFetch 稿件提交fetch模式

@@ -5,6 +5,11 @@ import (
 	"openplat/model"
 )
 
+func ShopInfoGetUrl(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+	url := model.ShopInfoGetUrl
+	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+}
+
 // ProductAdd 商品发布
 func ProductAdd(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ProductAddUrl
