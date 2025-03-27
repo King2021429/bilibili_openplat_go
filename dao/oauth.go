@@ -58,7 +58,3 @@ func BuildURL(baseURL string, params map[string]string) (string, error) {
 	// 返回拼接好的完整 URL
 	return u.String(), nil
 }
-
-func main() {
-
-}
