@@ -1,10 +1,12 @@
 package dao
 
 import (
+	"bufio"
 	"bytes"
 	"fmt"
 	"io"
 	"io/ioutil"
+	"log"
 	"mime/multipart"
 	"net/http"
 	"openplat/model"
@@ -15,10 +17,20 @@ import (
 )
 
 // PicRequest 图片上传请求方法
-func PicRequest(requestUrl, picUrl, clientId, accessToken, appSecret, version string) (resp model.BaseResp, err error) {
+func PicRequest(requestUrl, picUrl, clientId, accessToken, appSecret, version string, flag int64) (resp model.BaseResp, err error) {
 	payload := &bytes.Buffer{}
 	writer := multipart.NewWriter(payload)
 	// picUrl eg: "/Users/shenyue/Downloads/test.jpg"
+
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("请输入picUrl串: ")
+	picUrl, err = reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	picUrl = picUrl[:len(picUrl)-1]
+
 	file, errFile1 := os.Open(picUrl)
 	defer file.Close()
 	part1, errFile1 := writer.CreateFormFile("file", filepath.Base(picUrl))
@@ -27,12 +39,26 @@ func PicRequest(requestUrl, picUrl, clientId, accessToken, appSecret, version st
 		fmt.Println(errFile1)
 		return
 	}
-	_ = writer.WriteField("staff_id", "42002")
+
+	switch flag {
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+		fmt.Print("staff_id: ")
+		staffId, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatalf("读取输入时出错: %v", err)
+		}
+		staffId = staffId[:len(staffId)-1]
+		_ = writer.WriteField("staff_id", staffId)
+	}
 	err = writer.Close()
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
+
 	client := &http.Client{}
 	req, err := http.NewRequest("POST", requestUrl, payload)
 	if err != nil {
