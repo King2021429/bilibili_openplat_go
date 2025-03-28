@@ -40,13 +40,10 @@ func PicRequest(requestUrl, picUrl, clientId, accessToken, appSecret, version st
 		return
 	}
 
-	switch flag {
-	case 1:
-	case 2:
-	case 3:
-	case 4:
-		fmt.Print("staff_id: ")
-		staffId, err := reader.ReadString('\n')
+	var staffId string
+	if flag == 4 {
+		fmt.Print("请输入staff_id: ")
+		staffId, err = reader.ReadString('\n')
 		if err != nil {
 			log.Fatalf("读取输入时出错: %v", err)
 		}
