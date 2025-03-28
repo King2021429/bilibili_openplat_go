@@ -38,7 +38,6 @@ func main() {
 	}
 	appSecret = appSecret[:len(appSecret)-1]
 
-	// TODO 直播
 	fmt.Print("请输入对应方法:" +
 		"0: 计算签名\n" +
 		"1: 获取授权\n" +
@@ -107,10 +106,10 @@ func main() {
 		"65: COPYRIGHT_MUSIC_DATA-音乐列表 获取媒体元数据\n" +
 		"66: COPYRIGHT_MUSIC_DATA-音乐列表 获取媒体资源信息\n" +
 		"67: COPYRIGHT_MUSIC_DATA-音乐搜索\n" +
-		"68:稿件图片上传\n" +
-		"69:专栏稿件上传\n" +
-		"70:商品图片上传\n" +
-		"71:客服图片上传\n" +
+		"68: 稿件图片上传\n" +
+		"69: 专栏稿件上传\n" +
+		"70: 商品图片上传\n" +
+		"71: 客服图片上传\n" +
 		"q: 退出 ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
