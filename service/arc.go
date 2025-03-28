@@ -95,11 +95,61 @@ func ArcDel(clientId, accessToken, appSecret string, reqJson string) (resp model
 // ArcView 稿件查询
 func ArcView(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcView
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入resource_id: ")
+	resourceId, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	resourceId = resourceId[:len(resourceId)-1]
+	// 参数字典
+	params := map[string]string{
+		"resource_id": resourceId,
+	}
+	fullURL, err := dao.BuildURL(url, params)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println("Full URL:", fullURL)
+	return dao.ApiRequest(reqJson, fullURL, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArcViewList 稿件列表查询
 func ArcViewList(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcViewList
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入ps: ")
+	ps, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	ps = ps[:len(ps)-1]
+
+	fmt.Print("请输入pn: ")
+	pn, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	pn = pn[:len(pn)-1]
+
+	fmt.Print("请输入status: ")
+	status, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	status = status[:len(status)-1]
+	params := map[string]string{
+		"ps":     ps,
+		"pn":     pn,
+		"status": status,
+	}
+	fullURL, err := dao.BuildURL(url, params)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println("Full URL:", fullURL)
+	return dao.ApiRequest(reqJson, fullURL, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
