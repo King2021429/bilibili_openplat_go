@@ -31,13 +31,26 @@ func VideoInit(clientId, accessToken, appSecret string) (resp model.BaseResp, er
 func VideoArcComplete(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArcComplete
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("请输入reqJson串: ")
-	reqJson, err := reader.ReadString('\n')
+	fmt.Print("upload_token: ")
+	uploadToken, err := reader.ReadString('\n')
 	if err != nil {
-		log.Fatalf("读取输入时出错: %v", err)
+		log.Fatalf("upload_token: %v", err)
 	}
-	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	uploadToken = uploadToken[:len(uploadToken)-1]
+	// 参数字典
+	params := map[string]string{
+		"upload_token": uploadToken,
+	}
+
+	// 调用拼接函数
+	fullURL, err := dao.BuildURL(url, params)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	// 打印拼接好的完整 URL
+	fmt.Println("Full URL:", fullURL)
+	return dao.ApiRequest("", url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArcAddUrl 稿件提交 POST
