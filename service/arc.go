@@ -1,46 +1,55 @@
 package service
 
 import (
-	"encoding/json"
+	"bufio"
 	"fmt"
+	"log"
 	"openplat/dao"
 	"openplat/model"
+	"os"
 )
 
 // VideoInit 文件上传预处理
 func VideoInit(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArcInitUrl
-	videoInitReq := model.VideoInitReq{
-		Name:  "test.mp4",
-		Utype: "0",
-	}
-	videoInitReqJson, _ := json.Marshal(videoInitReq)
-	resp, err = dao.ApiRequest(string(videoInitReqJson), url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	//videoInitReq := model.VideoInitReq{
+	//	Name:  "test.mp4",
+	//	Utype: "0",
+	//}
+	//videoInitReqJson, _ := json.Marshal(videoInitReq)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入reqJson串: ")
+	reqJson, err := reader.ReadString('\n')
 	if err != nil {
-		fmt.Printf("VideoInit err:%+v", err)
+		log.Fatalf("读取输入时出错: %v", err)
 	}
-	return
+	reqJson = reqJson[:len(reqJson)-1]
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // VideoArcComplete 文件分片合片
 func VideoArcComplete(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArcComplete
-	resp, err = dao.ApiRequest("", url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入reqJson串: ")
+	reqJson, err := reader.ReadString('\n')
 	if err != nil {
-		fmt.Printf("VideoArcComplete err:%+v", err)
+		log.Fatalf("读取输入时出错: %v", err)
 	}
-	return
+	reqJson = reqJson[:len(reqJson)-1]
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArcAddUrl 稿件提交 POST
 func ArcAddUrl(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcAddUrl
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
-}
-
-// ArcAddFetch 稿件提交fetch模式
-func ArcAddFetch(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
-	url := model.ArcAddFetch
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入reqJson串: ")
+	reqJson, err = reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	reqJson = reqJson[:len(reqJson)-1]
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 

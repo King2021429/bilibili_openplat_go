@@ -45,6 +45,8 @@ func main() {
 		"2: USER_INFO-获取已授权用户基础公开信息\n" +
 		"3: USER_INFO-查询用户已授权权限列表\n" +
 		"4: ARC_BASE-文件上传预处理\n" +
+		"5: ARC_BASE-稿件编辑\n" +
+		"6: ARC_BASE-稿件删除\n" +
 		"7: ARC_BASE-文件分片合片\n" +
 		"8: ARC_BASE-视频稿件提交\n" +
 		"9: ARC_BASE-获取用于投稿的连接\n" +
@@ -133,18 +135,18 @@ func main() {
 	case "4":
 		// 文件上传预处理
 		_, _ = service.VideoInit(clientID, accessToken, appSecret)
+	case "5":
+		// 稿件编辑
+		_, _ = service.ArcEdit(clientID, accessToken, appSecret, "")
+	case "6":
+		// 稿件删除
+		_, _ = service.ArcDel(clientID, accessToken, appSecret, "")
 	case "7":
 		// 文件分片合片
 		_, _ = service.VideoArcComplete(clientID, accessToken, appSecret)
 	case "8":
 		// 视频稿件提交
-		fmt.Print("请输入reqJson串: ")
-		reqJson, err := reader.ReadString('\n')
-		if err != nil {
-			log.Fatalf("读取输入时出错: %v", err)
-		}
-		reqJson = reqJson[:len(reqJson)-1]
-		_, _ = service.ArcAddUrl(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArcAddUrl(clientID, accessToken, appSecret, "")
 	case "9":
 		// 获取用于投稿的连接
 		_, _ = service.CommonAddShare(clientID, accessToken, appSecret, "")
@@ -160,31 +162,11 @@ func main() {
 		_, _ = service.ArticleAdd(clientID, accessToken, appSecret, reqJson)
 	case "13":
 		// 文章编辑
-		fmt.Print("请输入reqJson串: ")
-		reqJson, err := reader.ReadString('\n')
-		if err != nil {
-			log.Fatalf("读取输入时出错: %v", err)
-		}
-		reqJson = reqJson[:len(reqJson)-1]
-		_, _ = service.ArticleEdit(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleEdit(clientID, accessToken, appSecret, "")
 	case "14":
-		// 文章删除
-		fmt.Print("请输入reqJson串: ")
-		reqJson, err := reader.ReadString('\n')
-		if err != nil {
-			log.Fatalf("读取输入时出错: %v", err)
-		}
-		reqJson = reqJson[:len(reqJson)-1]
-		_, _ = service.ArticleDelete(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleDelete(clientID, accessToken, appSecret, "")
 	case "15":
-		// 文章详情
-		fmt.Print("请输入reqJson串: ")
-		reqJson, err := reader.ReadString('\n')
-		if err != nil {
-			log.Fatalf("读取输入时出错: %v", err)
-		}
-		reqJson = reqJson[:len(reqJson)-1]
-		_, _ = service.ArticleDetail(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleDetail(clientID, accessToken, appSecret, "")
 	case "16":
 		_, _ = service.ArticleList(clientID, accessToken, appSecret, "")
 	case "17":
