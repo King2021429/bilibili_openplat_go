@@ -1,20 +1,45 @@
 package service
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
+	"log"
 	"openplat/dao"
 	"openplat/model"
+	"os"
 )
 
 // 唯一一个v1签名
 
 // CommonAddShare 新增共享
-func CommonAddShare(clientId, accessToken, appSecret, bizCode string) (resp model.BaseResp, err error) {
+func CommonAddShare(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入biz_code串: ")
+	bizCode, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	bizCode = bizCode[:len(bizCode)-1]
+
+	fmt.Print("请输入source: ")
+	source, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	source = source[:len(source)-1]
+
+	fmt.Print("请输入cover: ")
+	cover, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	cover = cover[:len(cover)-1]
+
 	// 创建一个 CommonMsg 对象
 	commonMsg := model.CommonMsg{
-		Source:  "",
-		Cover:   "",
+		Source:  source,
+		Cover:   cover,
 		Title:   "投稿标题",
 		TypeID:  172,
 		TopicID: 1173894,

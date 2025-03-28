@@ -149,7 +149,7 @@ func main() {
 		_, _ = service.ArcAddUrl(clientID, accessToken, appSecret, "")
 	case "9":
 		// 获取用于投稿的连接
-		_, _ = service.CommonAddShare(clientID, accessToken, appSecret, "")
+		_, _ = service.CommonAddShare(clientID, accessToken, appSecret)
 	case "10":
 		// 查询单一视频稿件详情
 		_, _ = service.ArcView(clientID, accessToken, appSecret, "")
