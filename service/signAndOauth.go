@@ -27,7 +27,7 @@ func Sign(clientId, accessToken, appSecret string) {
 	if err != nil {
 		log.Fatalf("读取输入时出错: %v", err)
 	}
-	reqJson = reqJson[:len(reqJson)-1]
+	version = version[:len(version)-1]
 	header := &model.CommonHeader{
 		ContentType:       model.JsonType,
 		ContentAcceptType: model.JsonType,

@@ -138,7 +138,13 @@ func main() {
 		_, _ = service.VideoArcComplete(clientID, accessToken, appSecret)
 	case "8":
 		// 视频稿件提交
-		_, _ = service.ArcAddUrl(clientID, accessToken, appSecret, "")
+		fmt.Print("请输入reqJson串: ")
+		reqJson, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatalf("读取输入时出错: %v", err)
+		}
+		reqJson = reqJson[:len(reqJson)-1]
+		_, _ = service.ArcAddUrl(clientID, accessToken, appSecret, reqJson)
 	case "9":
 		// 获取用于投稿的连接
 		_, _ = service.CommonAddShare(clientID, accessToken, appSecret, "")
@@ -154,20 +160,33 @@ func main() {
 		_, _ = service.ArticleAdd(clientID, accessToken, appSecret, reqJson)
 	case "13":
 		// 文章编辑
-		reqJson := ""
+		fmt.Print("请输入reqJson串: ")
+		reqJson, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatalf("读取输入时出错: %v", err)
+		}
+		reqJson = reqJson[:len(reqJson)-1]
 		_, _ = service.ArticleEdit(clientID, accessToken, appSecret, reqJson)
 	case "14":
 		// 文章删除
-		reqJson := ""
+		fmt.Print("请输入reqJson串: ")
+		reqJson, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatalf("读取输入时出错: %v", err)
+		}
+		reqJson = reqJson[:len(reqJson)-1]
 		_, _ = service.ArticleDelete(clientID, accessToken, appSecret, reqJson)
 	case "15":
 		// 文章详情
-		reqJson := ""
+		fmt.Print("请输入reqJson串: ")
+		reqJson, err := reader.ReadString('\n')
+		if err != nil {
+			log.Fatalf("读取输入时出错: %v", err)
+		}
+		reqJson = reqJson[:len(reqJson)-1]
 		_, _ = service.ArticleDetail(clientID, accessToken, appSecret, reqJson)
 	case "16":
-		// 文章列表查询
-		reqJson := ""
-		_, _ = service.ArticleList(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleList(clientID, accessToken, appSecret, "")
 	case "17":
 		// 文章分类查询
 		reqJson := ""
