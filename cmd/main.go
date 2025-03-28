@@ -158,8 +158,7 @@ func main() {
 		_, _ = service.ArcViewList(clientID, accessToken, appSecret, "")
 	case "12":
 		// 文章投稿
-		reqJson := "" // 这里你可能需要根据实际情况构造请求的 JSON 字符串
-		_, _ = service.ArticleAdd(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleAdd(clientID, accessToken, appSecret, "")
 	case "13":
 		// 文章编辑
 		_, _ = service.ArticleEdit(clientID, accessToken, appSecret, "")

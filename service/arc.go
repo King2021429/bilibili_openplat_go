@@ -56,12 +56,26 @@ func ArcAddUrl(clientId, accessToken, appSecret string, reqJson string) (resp mo
 // ArcEdit 稿件编辑
 func ArcEdit(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcEdit
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入reqJson串: ")
+	reqJson, err = reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	reqJson = reqJson[:len(reqJson)-1]
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArcDel 稿件删除
 func ArcDel(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArcDel
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("请输入reqJson串: ")
+	reqJson, err = reader.ReadString('\n')
+	if err != nil {
+		log.Fatalf("读取输入时出错: %v", err)
+	}
+	reqJson = reqJson[:len(reqJson)-1]
 	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
