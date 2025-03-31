@@ -157,12 +157,12 @@ func main() {
 		_, _ = service.ArcViewList(clientID, accessToken, appSecret, "")
 	case "12":
 		// 文章投稿
-		_, _ = service.ArticleAdd(clientID, accessToken, appSecret, "")
+		_, _ = service.ArticleAdd(clientID, accessToken, appSecret)
 	case "13":
 		// 文章编辑
-		_, _ = service.ArticleEdit(clientID, accessToken, appSecret, "")
+		_, _ = service.ArticleEdit(clientID, accessToken, appSecret)
 	case "14":
-		_, _ = service.ArticleDelete(clientID, accessToken, appSecret, "")
+		_, _ = service.ArticleDelete(clientID, accessToken, appSecret)
 	case "15":
 		_, _ = service.ArticleDetail(clientID, accessToken, appSecret, "")
 	case "16":

@@ -10,42 +10,21 @@ import (
 )
 
 // ArticleAdd 文章投稿
-func ArticleAdd(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func ArticleAdd(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArticleAddUrl
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("请输入reqJson串: ")
-	reqJson, err = reader.ReadString('\n')
-	if err != nil {
-		log.Fatalf("读取输入时出错: %v", err)
-	}
-	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ArticleAdd(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArticleEdit 文章编辑
-func ArticleEdit(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func ArticleEdit(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArticleEdit
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("请输入reqJson串: ")
-	reqJson, err = reader.ReadString('\n')
-	if err != nil {
-		log.Fatalf("读取输入时出错: %v", err)
-	}
-	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ArticleEdit(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArticleDelete 文章删除
-func ArticleDelete(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func ArticleDelete(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArticleDelete
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("请输入reqJson串: ")
-	reqJson, err = reader.ReadString('\n')
-	if err != nil {
-		log.Fatalf("读取输入时出错: %v", err)
-	}
-	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ArticleDel(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArticleDetail 文章详情
