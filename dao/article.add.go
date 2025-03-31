@@ -553,7 +553,7 @@ func AnthologyAdd(requestUrl, clientId, accessToken, appSecret, version string) 
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -634,7 +634,7 @@ func AnthologyEdit(requestUrl, clientId, accessToken, appSecret, version string)
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -714,7 +714,7 @@ func AnthologyBelong(requestUrl, clientId, accessToken, appSecret, version strin
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
