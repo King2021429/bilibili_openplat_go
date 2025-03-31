@@ -62,9 +62,9 @@ func AnthologyEdit(clientId, accessToken, appSecret string) (resp model.BaseResp
 }
 
 // ArticleBelong 文集下文章列表修改
-func ArticleBelong(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func ArticleBelong(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArticleBelong
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.AnthologyBelong(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // AnthologyDelete 文集删除

@@ -184,8 +184,7 @@ func main() {
 		_, _ = service.AnthologyEdit(clientID, accessToken, appSecret)
 	case "21":
 		// 文集下文章列表修改
-		reqJson := ""
-		_, _ = service.ArticleBelong(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleBelong(clientID, accessToken, appSecret)
 	case "22":
 		// 文集删除
 		reqJson := ""
