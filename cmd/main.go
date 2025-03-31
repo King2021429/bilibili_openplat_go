@@ -162,15 +162,17 @@ func main() {
 		// 文章编辑
 		_, _ = service.ArticleEdit(clientID, accessToken, appSecret)
 	case "14":
+		// ArticleDelete 文章删除
 		_, _ = service.ArticleDelete(clientID, accessToken, appSecret)
 	case "15":
-		_, _ = service.ArticleDetail(clientID, accessToken, appSecret, "")
+		// ArticleDetail 文章详情
+		_, _ = service.ArticleDetail(clientID, accessToken, appSecret)
 	case "16":
-		_, _ = service.ArticleList(clientID, accessToken, appSecret, "")
+		// ArticleList 文章列表
+		_, _ = service.ArticleList(clientID, accessToken, appSecret)
 	case "17":
 		// 文章分类查询
-		reqJson := ""
-		_, _ = service.ArticleCategories(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleCategories(clientID, accessToken, appSecret)
 	case "18":
 		// 获取视频、文章卡片信息
 		reqJson := ""

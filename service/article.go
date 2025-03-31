@@ -28,40 +28,26 @@ func ArticleDelete(clientId, accessToken, appSecret string) (resp model.BaseResp
 }
 
 // ArticleDetail 文章详情
-func ArticleDetail(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func ArticleDetail(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArticleDetail
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ArticleDetail(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArticleList 文章列表
-func ArticleList(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func ArticleList(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArticleList
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("请输入reqJson串: ")
-	reqJson, err = reader.ReadString('\n')
-	if err != nil {
-		log.Fatalf("读取输入时出错: %v", err)
-	}
-	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ArticleList(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArticleCategories 文章分类
-func ArticleCategories(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func ArticleCategories(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.ArticleCategories
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ApiRequest("", url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArticleCard 获取视频、文章卡片信息
 func ArticleCard(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
 	url := model.ArticleCard
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("请输入reqJson串: ")
-	reqJson, err = reader.ReadString('\n')
-	if err != nil {
-		log.Fatalf("读取输入时出错: %v", err)
-	}
-	reqJson = reqJson[:len(reqJson)-1]
 	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
