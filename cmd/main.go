@@ -175,16 +175,13 @@ func main() {
 		_, _ = service.ArticleCategories(clientID, accessToken, appSecret)
 	case "18":
 		// 获取视频、文章卡片信息
-		reqJson := ""
-		_, _ = service.ArticleCard(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.ArticleCard(clientID, accessToken, appSecret)
 	case "19":
 		// 文集提交
-		reqJson := ""
-		_, _ = service.AnthologyAdd(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.AnthologyAdd(clientID, accessToken, appSecret)
 	case "20":
 		// 文集信息编辑
-		reqJson := ""
-		_, _ = service.AnthologyEdit(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.AnthologyEdit(clientID, accessToken, appSecret)
 	case "21":
 		// 文集下文章列表修改
 		reqJson := ""
