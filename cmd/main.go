@@ -110,7 +110,7 @@ func main() {
 		"69: 专栏稿件上传\n" +
 		"70: 商品图片上传\n" +
 		"71: 客服图片上传\n" +
-		"q: 退出 ")
+		"q: 退出\n ")
 	input, err := reader.ReadString('\n')
 	if err != nil {
 		log.Fatalf("读取输入时出错: %v", err)
