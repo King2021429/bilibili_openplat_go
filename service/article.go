@@ -68,19 +68,19 @@ func ArticleBelong(clientId, accessToken, appSecret string) (resp model.BaseResp
 }
 
 // AnthologyDelete 文集删除
-func AnthologyDelete(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func AnthologyDelete(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.AnthologyDelete
-	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.AnthologyDelete(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // AnthologyList 文集列表查询
-func AnthologyList(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func AnthologyList(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.AnthologyList
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ApiRequest("", url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // AnthologyDetail 文集详情查询
-func AnthologyDetail(clientId, accessToken, appSecret string, reqJson string) (resp model.BaseResp, err error) {
+func AnthologyDetail(clientId, accessToken, appSecret string) (resp model.BaseResp, err error) {
 	url := model.AnthologyDetail
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.AnthologyDetail(url, clientId, accessToken, appSecret, model.BiliVersionV2)
 }

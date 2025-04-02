@@ -187,16 +187,13 @@ func main() {
 		_, _ = service.ArticleBelong(clientID, accessToken, appSecret)
 	case "22":
 		// 文集删除
-		reqJson := ""
-		_, _ = service.AnthologyDelete(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.AnthologyDelete(clientID, accessToken, appSecret)
 	case "23":
 		// 文集列表查询
-		reqJson := ""
-		_, _ = service.AnthologyList(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.AnthologyList(clientID, accessToken, appSecret)
 	case "24":
 		// 文集详情查询
-		reqJson := ""
-		_, _ = service.AnthologyDetail(clientID, accessToken, appSecret, reqJson)
+		_, _ = service.AnthologyDetail(clientID, accessToken, appSecret)
 	case "26":
 		// 获取用户数据 GET
 		reqJson := ""
