@@ -50,7 +50,7 @@ func VideoArcComplete(clientId, accessToken, appSecret string) (resp model.BaseR
 	}
 	// 打印拼接好的完整 URL
 	fmt.Println("Full URL:", fullURL)
-	return dao.ApiRequest("", url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ApiRequest("", fullURL, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // ArcAddUrl 稿件提交 POST
