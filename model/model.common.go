@@ -9,8 +9,6 @@ type BaseResp struct {
 
 // 域名
 const (
-	// UatMainOpenPlatformHttpHost 主站开平
-	UatMainOpenPlatformHttpHost = "https://uat-member.bilibili.com"
 	// MainOpenPlatformHttpHost 主站开平
 	MainOpenPlatformHttpHost = "https://member.bilibili.com"
 )

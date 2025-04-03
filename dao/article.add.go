@@ -67,7 +67,7 @@ func ArticleAdd(requestUrl, clientId, accessToken, appSecret, version string) (r
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -180,7 +180,7 @@ func ArticleEdit(requestUrl, clientId, accessToken, appSecret, version string) (
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -253,7 +253,7 @@ func ArticleDel(requestUrl, clientId, accessToken, appSecret, version string) (r
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest("POST", fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -326,7 +326,7 @@ func ArticleDetail(requestUrl, clientId, accessToken, appSecret, version string)
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -407,7 +407,7 @@ func ArticleList(requestUrl, clientId, accessToken, appSecret, version string) (
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -480,7 +480,7 @@ func ArticleCard(requestUrl, clientId, accessToken, appSecret, version string) (
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodGet, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -553,7 +553,7 @@ func AnthologyAdd(requestUrl, clientId, accessToken, appSecret, version string) 
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -634,7 +634,7 @@ func AnthologyEdit(requestUrl, clientId, accessToken, appSecret, version string)
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -714,7 +714,7 @@ func AnthologyBelong(requestUrl, clientId, accessToken, appSecret, version strin
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -786,7 +786,7 @@ func AnthologyDelete(requestUrl, clientId, accessToken, appSecret, version strin
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -858,7 +858,7 @@ func AnthologyDetail(requestUrl, clientId, accessToken, appSecret, version strin
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl), payload)
+	req, err := http.NewRequest(model.MethodPost, fmt.Sprintf("%s%s", model.MainOpenPlatformHttpHost, requestUrl), payload)
 	if err != nil {
 		fmt.Println(err)
 		return
