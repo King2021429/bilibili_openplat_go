@@ -20,7 +20,7 @@ func MusicMetaList(clientId, accessToken, appSecret string, reqJson string) (res
 		log.Fatalf("读取输入时出错: %v", err)
 	}
 	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // MusicList 音乐列表 获取媒体资源信息
@@ -34,7 +34,7 @@ func MusicList(clientId, accessToken, appSecret string, reqJson string) (resp mo
 		log.Fatalf("读取输入时出错: %v", err)
 	}
 	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
 
 // MusicSearch 音乐搜索
@@ -48,5 +48,5 @@ func MusicSearch(clientId, accessToken, appSecret string, reqJson string) (resp 
 		log.Fatalf("读取输入时出错: %v", err)
 	}
 	reqJson = reqJson[:len(reqJson)-1]
-	return dao.ApiRequest(reqJson, url, model.MethodGet, clientId, accessToken, appSecret, model.BiliVersionV2)
+	return dao.ApiRequest(reqJson, url, model.MethodPost, clientId, accessToken, appSecret, model.BiliVersionV2)
 }
