@@ -32,12 +32,12 @@ func ApiRequest(reqJson, requestUrl, method, clientId, accessToken, appSecret, v
 		AccessToken:       accessToken,
 	}
 	header.Authorization = CreateSignature(header, appSecret)
-	fmt.Printf("\n请求url:%s", requestUrl)
+	url := fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl)
+	fmt.Printf("\n请求url:%s", url)
 	fmt.Printf("\n请求头:%s", ToMap(header))
-
 	cli := request.Client{
 		Method: method,
-		URL:    fmt.Sprintf("%s%s", model.UatMainOpenPlatformHttpHost, requestUrl),
+		URL:    url,
 		Header: ToMap(header),
 		String: reqJson,
 	}
